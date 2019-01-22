@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zdc.shiro.mapper.UserMapper">
+	<select id="findByUsername" parameterType="java.lang.String" resultType="User">
+		SELECT id,name,password,age,create_date,update_date,perms from user where 1=1
+		<if test="name != null and name != ''">
+			and name = #{name}
+		</if>
+	</select>
+	
+	
+	<select id="findById" parameterType="int" resultType="User">
+		SELECT id,name,password,age,create_date,update_date,perms from user where 1=1
+		<if test="id != null and id != ''">
+			and id = #{id}
+		</if>
+	</select>
+</mapper>
